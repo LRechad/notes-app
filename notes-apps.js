@@ -16,20 +16,24 @@ document.querySelector('#create-note').addEventListener('click', function(e) {
     saveNotes(notes);
     location.assign(`edit.html#${id}`);
     // renderNotes(notes, filters);
-})
+});
 
 document.querySelector('#search-note').addEventListener('input', function(e) {
     filters.searchText = e.target.value;
     renderNotes(notes, filters);
-})
+});
 
 document.querySelector("#filter-by").addEventListener('change', function(e) {
     console.log(e.target.value);
-})
+});
 
 window.addEventListener('storage', function(e) {
     if (e.key === 'notes') {
         notes = JSON.parse(e.newValue);
         renderNotes(notes, filters);
     }
-})
+});
+
+const date = moment();
+date.year(1994).month(7).date(31);
+console.log(date.format('MMM D, YYYY'));

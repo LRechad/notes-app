@@ -1,6 +1,7 @@
 let notes = getSavedNotes();
 const filters = {
-    searchText : ''
+    searchText : '',
+    sortBy: 'byEdited'
 };
 
 // Initial rendering
@@ -8,10 +9,13 @@ renderNotes(notes, filters);
 
 document.querySelector('#create-note').addEventListener('click', function(e) {
     const id = uuidv4();
+    const timestamp = moment().valueOf();
     notes.push({
         id: id,
         title: '',
-        body: ''
+        body: '',
+        createdAt: timestamp,
+        updatedAt: timestamp
     });
     saveNotes(notes);
     location.assign(`edit.html#${id}`);
@@ -24,7 +28,8 @@ document.querySelector('#search-note').addEventListener('input', function(e) {
 });
 
 document.querySelector("#filter-by").addEventListener('change', function(e) {
-    console.log(e.target.value);
+    filters.sortBy = e.target.value;
+    renderNotes(notes, filters);
 });
 
 window.addEventListener('storage', function(e) {
@@ -33,7 +38,3 @@ window.addEventListener('storage', function(e) {
         renderNotes(notes, filters);
     }
 });
-
-const date = moment();
-date.year(1994).month(7).date(31);
-console.log(date.format('MMM D, YYYY'));

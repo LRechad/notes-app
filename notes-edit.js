@@ -7,7 +7,7 @@ const noteId = location.hash.substring(1);
 let notes = getSavedNotes();
 let note = notes.find((note) => note.id === noteId);
 
-if (noteId === undefined) {
+if (!noteId) {
     location.assign('index.html'); // redirect user on the index page
 }
 
@@ -43,7 +43,7 @@ window.addEventListener('storage', (e) => {
         notes = JSON.parse(e.newValue)
         note = notes.find((note) => note.id === noteId);
 
-        if (noteId === undefined) {
+        if (!noteId) {
             location.assign('index.html'); // redirect user on the index page
         }
 

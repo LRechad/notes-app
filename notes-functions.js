@@ -1,5 +1,6 @@
-// Read Check & Parse
+'use strict';
 
+// Read Check & Parse
 // Read existing datas from localStorage
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem('notes');

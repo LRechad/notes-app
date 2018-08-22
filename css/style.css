@@ -1,5 +1,14 @@
 /* Base Styles */
 
+/*
+
+    BEM (Block, Element, Modifier)
+
+    Block -> house
+    Element -> house__kitchen
+    Modifier -> house--condo
+
+*/
 * {
     box-sizing: border-box;
     margin: 0;

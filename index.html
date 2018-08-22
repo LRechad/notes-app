@@ -10,20 +10,32 @@
 </head>
 
 <body>
-    <h1>Notes app</h1>
-    <h4>Takes notes and never forget</h4>
-    <label>
-        Search notes :
-        <input id="search-note" type="text" placeholder="Filter notes">
-    </label>
-    <select id="filter-by">
-        <option value="byEdited">Sort by last edited</option>
-        <option value="byCreated">Sort by recenty created</option>
-        <option value="alphabetical">Sort alphabeticaly</option>
-    </select>
-    <div id="notes">
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Notes app</h1>
+            <h4 class="header__subtitle ">Takes notes and never forget</h4>
+        </div>
+    </header>
+
+    <div class="actions">
+        <div class="actions__container">
+            <label>
+                Search notes :
+                <input id="search-note" class="input" type="text" placeholder="Filter notes">
+            </label>
+            <select id="filter-by" class="dropdown">
+                <option value="byEdited">Sort by last edited</option>
+                <option value="byCreated">Sort by recenty created</option>
+                <option value="alphabetical">Sort alphabeticaly</option>
+            </select>
+        </div>
     </div>
-    <button id="create-note">Create Note</button>
+
+    <div class="container">
+        <div id="notes"></div>
+        <button id="create-note" class="button">Create Note</button>
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
     <script src="js/uuidv4.js"></script>
     <script src="js/notes-functions.js"></script>
